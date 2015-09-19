@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Crowd_Tweet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crowd Tweet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfr-Ko-ZTK">
+                                <rect key="frame" x="216" y="116" width="169" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="169" id="NcN-Hr-Hsu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.25882352941176473" green="0.59607843137254901" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pfr-Ko-ZTK" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="96" id="2ZH-c1-MMj"/>
+                            <constraint firstItem="Pfr-Ko-ZTK" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="gWt-zv-JT3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="bWf-iz-k37" kind="custom" identifier="SignInToMainSegue" customClass="SignInToMainSegue" customModule="Crowd_Tweet" customModuleProvider="target" id="uLa-F4-kvI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="266"/>
+        </scene>
+        <!--SignOutViewController-->
+        <scene sceneID="xhk-yU-0G5">
+            <objects>
+                <viewController storyboardIdentifier="ProfilePage" title="SignOutViewController" id="ZgA-hD-rY2" customClass="ProfilePageViewController" customModule="Crowd_Tweet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NXK-bB-Tpa"/>
+                        <viewControllerLayoutGuide type="bottom" id="P7k-X1-2bk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qr4-sI-ioi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtB-ie-yqs">
+                                <rect key="frame" x="270" y="285" width="60" height="30"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignOutButton:" destination="ZgA-hD-rY2" eventType="touchUpInside" id="yft-r5-Q3u"/>
+                                    <segue destination="vXZ-lx-hvc" kind="show" id="BmL-V8-0eE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TtB-ie-yqs" firstAttribute="centerX" secondItem="Qr4-sI-ioi" secondAttribute="centerX" id="9D8-b6-EBL"/>
+                            <constraint firstItem="TtB-ie-yqs" firstAttribute="centerY" secondItem="Qr4-sI-ioi" secondAttribute="centerY" id="XUu-Ce-lbx"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="twtr-favorite-off.png" id="G3t-z9-wyh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MrY-ST-C3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1931" y="731"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="cRH-Kn-rlR">
+            <objects>
+                <viewController id="0Wd-p0-SAs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QWL-lE-mcs"/>
+                        <viewControllerLayoutGuide type="bottom" id="sZf-BC-bj7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1st-BQ-zAt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Jh-FP-LJK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Jh-FP-LJK" firstAttribute="top" secondItem="1st-BQ-zAt" secondAttribute="top" id="6g5-zN-9C8"/>
+                            <constraint firstAttribute="trailing" secondItem="0Jh-FP-LJK" secondAttribute="trailing" id="Cxu-0O-QWu"/>
+                            <constraint firstAttribute="bottom" secondItem="0Jh-FP-LJK" secondAttribute="bottom" id="LN7-0z-x3j"/>
+                            <constraint firstItem="0Jh-FP-LJK" firstAttribute="leading" secondItem="1st-BQ-zAt" secondAttribute="leading" id="Lhy-u7-CUB"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="C8Y-E0-vAJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nSx-1x-fKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1868" y="-93"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="vDT-sd-OLg">
+            <objects>
+                <tabBarController id="bWf-iz-k37" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="NxH-cC-TXd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="0Wd-p0-SAs" kind="relationship" relationship="viewControllers" id="Y3a-6z-5AN"/>
+                        <segue destination="ZgA-hD-rY2" kind="relationship" relationship="viewControllers" id="pNI-jr-qHl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6W7-aW-xoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="239"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="twtr-favorite-off.png" width="15" height="15"/>
+    </resources>
+</document>
