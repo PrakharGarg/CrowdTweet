@@ -9,6 +9,8 @@
 import UIKit
 import Fabric
 import TwitterKit
+import Parse
+import Bolts
 
 
 @UIApplicationMain
@@ -19,7 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Twitter.self()])
+        Parse.enableLocalDatastore()
+        
+        Parse.setApplicationId("rToAjUee9ogT3rlPAOj3eQ1PlyLYRnINWNXkoCue",
+            clientKey: "0USGC24vFvjDjdgDLbago55khScBrmBaxbE0RrKX")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+
         return true
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
