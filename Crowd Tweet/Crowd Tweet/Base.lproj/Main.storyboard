@@ -103,8 +103,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NB0-6q-ADl">
+                                <rect key="frame" x="103" y="323" width="122" height="30"/>
+                                <state key="normal" title="Give me a Tweet! ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getAPrexistingTweet:" destination="0Wd-p0-SAs" eventType="touchUpInside" id="aUZ-mo-RSP"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8A-uJ-OFO">
-                                <rect key="frame" x="272" y="323" width="57" height="30"/>
+                                <rect key="frame" x="406" y="323" width="57" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="57" id="pbB-ii-nkS"/>
                                 </constraints>
@@ -123,7 +132,9 @@
                             <constraint firstItem="q09-o7-fnd" firstAttribute="centerY" secondItem="1st-BQ-zAt" secondAttribute="centerY" id="WFO-vW-cEB"/>
                             <constraint firstItem="Y8A-uJ-OFO" firstAttribute="top" secondItem="q09-o7-fnd" secondAttribute="bottom" constant="8" symbolic="YES" id="ZXH-LI-k42"/>
                             <constraint firstItem="J2J-cg-L8t" firstAttribute="centerX" secondItem="q09-o7-fnd" secondAttribute="centerX" id="ejI-ch-cJa"/>
-                            <constraint firstItem="Y8A-uJ-OFO" firstAttribute="centerX" secondItem="q09-o7-fnd" secondAttribute="centerX" id="hSE-gT-hav"/>
+                            <constraint firstItem="Y8A-uJ-OFO" firstAttribute="centerX" secondItem="q09-o7-fnd" secondAttribute="centerX" constant="134.5" id="hSE-gT-hav"/>
+                            <constraint firstItem="NB0-6q-ADl" firstAttribute="leading" secondItem="1st-BQ-zAt" secondAttribute="leadingMargin" constant="87" id="mzx-ep-hDU"/>
+                            <constraint firstItem="NB0-6q-ADl" firstAttribute="top" secondItem="q09-o7-fnd" secondAttribute="bottom" constant="8" id="n7L-cj-55j"/>
                             <constraint firstItem="q09-o7-fnd" firstAttribute="trailing" secondItem="1st-BQ-zAt" secondAttribute="trailingMargin" id="sau-HO-soH"/>
                         </constraints>
                     </view>

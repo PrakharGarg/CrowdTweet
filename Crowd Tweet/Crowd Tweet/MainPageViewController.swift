@@ -25,6 +25,7 @@ class MainPageViewController: UIViewController {
             // stores it in Parse database
             var tweets = PFObject(className:"Tweets")
             
+            // Store tweet and Twitter handle
             tweets.setValue(preExistingTweet.text! + " " + tweetTextField.text, forKey: "tweet")
             tweets.setValue(Twitter.sharedInstance().session()?.userName, forKey: "handle")
             
@@ -36,6 +37,7 @@ class MainPageViewController: UIViewController {
                 }
 
             })
+            self.tweetTextField.text = ""
         }
             
         // If making a new tweet
@@ -43,6 +45,7 @@ class MainPageViewController: UIViewController {
         {
             var tweets = PFObject(className:"Tweets")
             
+            // Store tweet and Twitter handle
             tweets.setValue(tweetTextField.text, forKey: "tweet")
             tweets.setValue(Twitter.sharedInstance().session()?.userName, forKey: "handle")
             
@@ -56,6 +59,26 @@ class MainPageViewController: UIViewController {
             })
         }
         
+    }
+    
+    @IBAction func getAPrexistingTweet(sender: AnyObject) {
+    
+        // Get a tweet from database
+        var query = PFQuery(className:"Tweets")
+        query.getFirstObjectInBackgroundWithBlock {
+            (object: PFObject?, error: NSError?) -> Void in
+            if error != nil || object == nil {
+                println("The getFirstObject request failed.")
+            } else {
+                // The find succeeded.
+                println("Successfully retrieved the object.")
+                let tweetToEdit = object?.objectForKey("tweet") as! String
+                self.preExistingTweet.text = tweetToEdit
+                
+            }
+        }
+    
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
