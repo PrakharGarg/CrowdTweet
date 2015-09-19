@@ -20,20 +20,32 @@ class MainPageViewController: UIViewController {
     
     @IBAction func submitTweet(sender: AnyObject) {
         
+        // If contributing to someone else's tweet
         if preExistingTweet.text != "" {
+            // stores it in Parse database
             var tweets = PFObject(className:"Tweets")
+            
             tweets.setValue(preExistingTweet.text! + " " + tweetTextField.text, forKey: "tweet")
-//            tweets["tweet"] = "test"
+            tweets.setValue(Twitter.sharedInstance().session()?.userName, forKey: "handle")
+            
             tweets.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-        
-            //stuff
+                if (success) {
+                    // The object has been saved.
+                } else {
+                    // There was a problem, check error.description
+                }
+
             })
         }
+            
+        // If making a new tweet
         else
         {
             var tweets = PFObject(className:"Tweets")
+            
             tweets.setValue(tweetTextField.text, forKey: "tweet")
-            //            tweets["tweet"] = "test"
+            tweets.setValue(Twitter.sharedInstance().session()?.userName, forKey: "handle")
+            
             tweets.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                 if (success) {
                     // The object has been saved.
