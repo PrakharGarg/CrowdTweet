@@ -38,6 +38,7 @@ class MainPageViewController: UIViewController {
 
             })
             self.tweetTextField.text = ""
+            self.preExistingTweet.text = ""
         }
             
         // If making a new tweet
@@ -57,6 +58,7 @@ class MainPageViewController: UIViewController {
                 }
 
             })
+            self.tweetTextField.text = ""
         }
         
     }
