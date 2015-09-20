@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -89,12 +91,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Get those creative juices flowing!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q09-o7-fnd">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Get those creative juices flowing!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q09-o7-fnd">
                                 <rect key="frame" x="16" y="285" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="0Wd-p0-SAs" id="8jl-y5-ebz"/>
+                                    <outlet property="delegate" destination="0Wd-p0-SAs" id="Nr7-M6-zeT"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2J-cg-L8t">
@@ -125,10 +127,19 @@
                                     <action selector="submitTweet:" destination="0Wd-p0-SAs" eventType="touchUpInside" id="Y8L-7S-Lm9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewB-GV-XmI">
+                                <rect key="frame" x="559" y="327" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q09-o7-fnd" firstAttribute="leading" secondItem="1st-BQ-zAt" secondAttribute="leadingMargin" id="HIm-DG-8kr"/>
+                            <constraint firstItem="ewB-GV-XmI" firstAttribute="baseline" secondItem="Y8A-uJ-OFO" secondAttribute="firstBaseline" id="14Q-6E-JNi"/>
+                            <constraint firstItem="ewB-GV-XmI" firstAttribute="baseline" secondItem="Y8A-uJ-OFO" secondAttribute="baseline" id="4iD-df-FzK"/>
+                            <constraint firstItem="ewB-GV-XmI" firstAttribute="trailing" secondItem="1st-BQ-zAt" secondAttribute="trailingMargin" id="BhO-Mj-zsO"/>
+                            <constraint firstItem="q09-o7-fnd" firstAttribute="leading" secondItem="1st-BQ-zAt" secondAttribute="leadingMargin" constant="-4" id="HIm-DG-8kr"/>
                             <constraint firstItem="Y8A-uJ-OFO" firstAttribute="centerX" secondItem="q09-o7-fnd" secondAttribute="centerX" id="Koi-fW-Nzz"/>
                             <constraint firstItem="J2J-cg-L8t" firstAttribute="top" secondItem="QWL-lE-mcs" secondAttribute="bottom" constant="39" id="Sj7-lC-xdb"/>
                             <constraint firstItem="q09-o7-fnd" firstAttribute="centerY" secondItem="1st-BQ-zAt" secondAttribute="centerY" id="WFO-vW-cEB"/>
@@ -136,11 +147,13 @@
                             <constraint firstItem="NB0-6q-ADl" firstAttribute="top" secondItem="J2J-cg-L8t" secondAttribute="bottom" constant="8" symbolic="YES" id="eaH-gP-0pB"/>
                             <constraint firstItem="J2J-cg-L8t" firstAttribute="centerX" secondItem="q09-o7-fnd" secondAttribute="centerX" id="ejI-ch-cJa"/>
                             <constraint firstItem="Y8A-uJ-OFO" firstAttribute="centerX" secondItem="NB0-6q-ADl" secondAttribute="centerX" id="m6Y-fL-jaX"/>
-                            <constraint firstItem="q09-o7-fnd" firstAttribute="trailing" secondItem="1st-BQ-zAt" secondAttribute="trailingMargin" id="sau-HO-soH"/>
+                            <constraint firstItem="q09-o7-fnd" firstAttribute="trailing" secondItem="1st-BQ-zAt" secondAttribute="trailingMargin" constant="4" id="sau-HO-soH"/>
+                            <constraint firstItem="ewB-GV-XmI" firstAttribute="centerY" secondItem="Y8A-uJ-OFO" secondAttribute="centerY" id="zvW-1h-p2h"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="C8Y-E0-vAJ"/>
                     <connections>
+                        <outlet property="characterCount" destination="ewB-GV-XmI" id="rk5-7p-xP4"/>
                         <outlet property="preExistingTweet" destination="J2J-cg-L8t" id="vA6-Xi-QuW"/>
                         <outlet property="tweetTextField" destination="q09-o7-fnd" id="JVh-51-zgP"/>
                     </connections>

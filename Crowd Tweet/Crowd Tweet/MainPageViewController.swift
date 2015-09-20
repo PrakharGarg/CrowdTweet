@@ -11,7 +11,7 @@ import TwitterKit
 import Parse
 import GameplayKit;
 
-class MainPageViewController: UIViewController {
+class MainPageViewController: UIViewController, UITextFieldDelegate {
     
     // Label that contains an already started Tweet
     @IBOutlet var preExistingTweet: UILabel!
@@ -19,6 +19,7 @@ class MainPageViewController: UIViewController {
     // TextField to enter in part of a Tweet
     @IBOutlet var tweetTextField: UITextField!
     
+    @IBOutlet var characterCount: UILabel!
     var preExistingTweetParseID: String = ""
     
     var usingUnfinishedTweet = false
@@ -82,7 +83,7 @@ class MainPageViewController: UIViewController {
         
     }
     
-    // If user hits "Give Me a Tweet!", select a random object from Parse database and show it. 
+    // If user hits "Give Me a Tweet!", select a random object from Parse database and show it.
     @IBAction func getAPrexistingTweet(sender: AnyObject) {
         
         var numberOfObjects: Int32 = 0
@@ -114,6 +115,7 @@ class MainPageViewController: UIViewController {
     
             }
         }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -129,8 +131,15 @@ class MainPageViewController: UIViewController {
         return true
     }
     
-
-    /*
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let newLength = (textField.text!.utf16).count + (string.utf16).count - range.length
+        if(newLength <= 40){
+            self.characterCount.text = "\(40 - newLength)"
+            return true
+        }else{
+            return false
+        }
+    }    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
