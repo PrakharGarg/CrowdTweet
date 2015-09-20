@@ -9,6 +9,7 @@
 import UIKit
 import TwitterKit
 import Parse
+import GameplayKit;
 
 class MainPageViewController: UIViewController {
     
@@ -81,26 +82,38 @@ class MainPageViewController: UIViewController {
         
     }
     
+    // If user hits "Give Me a Tweet!", select a random object from Parse database and show it. 
     @IBAction func getAPrexistingTweet(sender: AnyObject) {
-    
-        // Get a tweet from database
+        
+        var numberOfObjects: Int32 = 0
+        
         let query = PFQuery(className:"Tweets")
-        query.getFirstObjectInBackgroundWithBlock {
-            (object: PFObject?, error: NSError?) -> Void in
-            if error != nil || object == nil {
-                print("The getFirstObject request failed.")
-            } else {
-                // The find succeeded.
-                print("Successfully retrieved the object.")
-                let tweetToEdit = object?.objectForKey("tweet") as! String
-                self.preExistingTweet.text = tweetToEdit
-                self.preExistingTweetParseID = (object?.objectId)!
+        query.countObjectsInBackgroundWithBlock {
+            (count: Int32, error: NSError?) -> Void in
+            if error == nil {
+                numberOfObjects = count
+                var randomNumber = Int(numberOfObjects)
+                randomNumber = random() % randomNumber
+                print(randomNumber)
+
+                query.skip = randomNumber
+                query.limit = 10
+                
+                query.getFirstObjectInBackgroundWithBlock {
+                    (object: PFObject?, error: NSError?) -> Void in
+                    if error != nil || object == nil {
+                        print("The getFirstObject request failed.")
+                    } else {
+                        // The find succeeded.
+                        print("Successfully retrieved the object.")
+                        let tweetToEdit = object?.objectForKey("tweet") as! String
+                        self.preExistingTweet.text = tweetToEdit
+                        self.preExistingTweetParseID = (object?.objectId)!
+                    }
+                }
+    
             }
         }
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -115,8 +128,6 @@ class MainPageViewController: UIViewController {
         textField.resignFirstResponder()
         return true
     }
-    
-    fun getRandomTweet (
     
 
     /*
