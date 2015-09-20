@@ -18,36 +18,52 @@ class MainPageViewController: UIViewController {
     // TextField to enter in part of a Tweet
     @IBOutlet var tweetTextField: UITextField!
     
+    var preExistingTweetParseID: String = ""
+    
+    var usingUnfinishedTweet = false
+    
     @IBAction func submitTweet(sender: AnyObject) {
         
         // If contributing to someone else's tweet
         if preExistingTweet.text != "" {
             // stores it in Parse database
-            var tweets = PFObject(className:"Tweets")
+            let tweets = PFObject(className:"Tweets")
             
             // Store tweet and Twitter handle
-            tweets.setValue(preExistingTweet.text! + " " + tweetTextField.text, forKey: "tweet")
-            tweets.setValue(Twitter.sharedInstance().session()?.userName, forKey: "handle")
             
-            tweets.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-                if (success) {
-                    // The object has been saved.
-                } else {
-                    // There was a problem, check error.description
-                }
+            let query = PFQuery(className:"Tweets")
+            let newTweet = self.preExistingTweet.text! + " " + self.tweetTextField.text!
 
-            })
-            self.tweetTextField.text = ""
-            self.preExistingTweet.text = ""
+            query.getObjectInBackgroundWithId(self.preExistingTweetParseID) {
+                (tweetID: PFObject?, error: NSError?) -> Void in
+                print(tweetID)
+                if error != nil {
+                    print(error)
+                }
+                else if let tweetID = tweetID {
+
+                    tweetID["tweet"] = newTweet
+                    tweetID.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                        if (success) {
+                            // The object has been saved.
+                        } else {
+                            // There was a problem, check error.description
+                        }
+                        
+                    })
+
+                }
+            }
+          
         }
             
         // If making a new tweet
         else
         {
-            var tweets = PFObject(className:"Tweets")
+            let tweets = PFObject(className:"Tweets")
             
             // Store tweet and Twitter handle
-            tweets.setValue(tweetTextField.text, forKey: "tweet")
+            tweets.setObject(tweetTextField.text!, forKey: "tweet")
             tweets.setValue(Twitter.sharedInstance().session()?.userName, forKey: "handle")
             
             tweets.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
@@ -58,30 +74,34 @@ class MainPageViewController: UIViewController {
                 }
 
             })
-            self.tweetTextField.text = ""
+            usingUnfinishedTweet = true
+
         }
+        self.preExistingTweet.text = ""
+        self.tweetTextField.text = ""
         
     }
     
     @IBAction func getAPrexistingTweet(sender: AnyObject) {
     
         // Get a tweet from database
-        var query = PFQuery(className:"Tweets")
+        let query = PFQuery(className:"Tweets")
         query.getFirstObjectInBackgroundWithBlock {
             (object: PFObject?, error: NSError?) -> Void in
             if error != nil || object == nil {
-                println("The getFirstObject request failed.")
+                print("The getFirstObject request failed.")
             } else {
                 // The find succeeded.
-                println("Successfully retrieved the object.")
+                print("Successfully retrieved the object.")
                 let tweetToEdit = object?.objectForKey("tweet") as! String
                 self.preExistingTweet.text = tweetToEdit
-                
+                self.preExistingTweetParseID = (object?.objectId)!
             }
         }
-    
-    
     }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

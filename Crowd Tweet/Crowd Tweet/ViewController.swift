@@ -24,7 +24,7 @@ class ViewController: UIViewController {
                 }
             }
             
-            logInButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+            logInButton.translatesAutoresizingMaskIntoConstraints = false
             let centerXConstraint = NSLayoutConstraint(item: logInButton, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1, constant: 0);
             let centerYConstraint = NSLayoutConstraint(item: logInButton, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1, constant: 0);
             

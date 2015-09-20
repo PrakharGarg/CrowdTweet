@@ -232,6 +232,8 @@
 		1CED8CE41BADCD2200BD3424 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Prakhar Garg";
 				TargetAttributes = {
@@ -514,6 +516,7 @@
 				1CED8D0D1BADCD2200BD3424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CED8D0E1BADCD2200BD3424 /* Build configuration list for PBXNativeTarget "Crowd TweetTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +525,7 @@
 				1CED8D101BADCD2200BD3424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
