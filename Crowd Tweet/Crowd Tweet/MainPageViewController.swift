@@ -27,7 +27,7 @@ class MainPageViewController: UIViewController {
         // If contributing to someone else's tweet
         if preExistingTweet.text != "" {
             // stores it in Parse database
-            let tweets = PFObject(className:"Tweets")
+            _ = PFObject(className:"Tweets")
             
             // Store tweet and Twitter handle
             
@@ -36,7 +36,6 @@ class MainPageViewController: UIViewController {
 
             query.getObjectInBackgroundWithId(self.preExistingTweetParseID) {
                 (tweetID: PFObject?, error: NSError?) -> Void in
-                print(tweetID)
                 if error != nil {
                     print(error)
                 }
@@ -111,6 +110,13 @@ class MainPageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    fun getRandomTweet (
     
 
     /*
