@@ -16,6 +16,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     // Label that contains an already started Tweet
     @IBOutlet var preExistingTweet: UILabel!
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     // TextField to enter in part of a Tweet
     @IBOutlet var tweetTextField: UITextField!
     
@@ -80,11 +81,15 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         }
         self.preExistingTweet.text = ""
         self.tweetTextField.text = ""
+        characterCount.text = "40"
         
     }
     
     // If user hits "Give Me a Tweet!", select a random object from Parse database and show it.
     @IBAction func getAPrexistingTweet(sender: AnyObject) {
+        
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
         
         var numberOfObjects: Int32 = 0
         
@@ -108,6 +113,8 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
                         // The find succeeded.
                         print("Successfully retrieved the object.")
                         let tweetToEdit = object?.objectForKey("tweet") as! String
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.hidden = true
                         self.preExistingTweet.text = tweetToEdit
                         self.preExistingTweetParseID = (object?.objectId)!
                     }
@@ -118,6 +125,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.hidden = true
         
     }
 

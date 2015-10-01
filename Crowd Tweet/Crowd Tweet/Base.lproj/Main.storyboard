@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -22,6 +22,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crowd Tweet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfr-Ko-ZTK">
                                 <rect key="frame" x="216" y="116" width="169" height="30"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="NcN-Hr-Hsu"/>
                                 </constraints>
@@ -30,6 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Pfr-Ko-ZTK" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="96" id="2ZH-c1-MMj"/>
@@ -57,7 +59,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtB-ie-yqs">
-                                <rect key="frame" x="270" y="285" width="60" height="30"/>
+                                <rect key="frame" x="270" y="505" width="60" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Sign Out">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -66,11 +69,21 @@
                                     <segue destination="vXZ-lx-hvc" kind="show" id="BmL-V8-0eE"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DYU-Nl-QYe">
+                                <rect key="frame" x="0.0" y="20" width="600" height="477"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="DYU-Nl-QYe" firstAttribute="top" secondItem="NXK-bB-Tpa" secondAttribute="bottom" id="4NC-NJ-yV8"/>
                             <constraint firstItem="TtB-ie-yqs" firstAttribute="centerX" secondItem="Qr4-sI-ioi" secondAttribute="centerX" id="9D8-b6-EBL"/>
-                            <constraint firstItem="TtB-ie-yqs" firstAttribute="centerY" secondItem="Qr4-sI-ioi" secondAttribute="centerY" id="XUu-Ce-lbx"/>
+                            <constraint firstItem="DYU-Nl-QYe" firstAttribute="centerX" secondItem="TtB-ie-yqs" secondAttribute="centerX" id="WC0-o9-1NM"/>
+                            <constraint firstItem="TtB-ie-yqs" firstAttribute="centerY" secondItem="Qr4-sI-ioi" secondAttribute="centerY" constant="220" id="XUu-Ce-lbx"/>
+                            <constraint firstItem="TtB-ie-yqs" firstAttribute="top" secondItem="DYU-Nl-QYe" secondAttribute="bottom" constant="8" symbolic="YES" id="a1x-Zw-QG3"/>
+                            <constraint firstItem="DYU-Nl-QYe" firstAttribute="leading" secondItem="Qr4-sI-ioi" secondAttribute="leading" id="qfG-WP-qA5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="twtr-favorite-off.png" id="G3t-z9-wyh"/>
@@ -93,6 +106,7 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Get those creative juices flowing!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q09-o7-fnd">
                                 <rect key="frame" x="16" y="285" width="568" height="30"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -101,16 +115,18 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2J-cg-L8t">
                                 <rect key="frame" x="160" y="59" width="281" height="147"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="281" id="MDr-tp-kLv"/>
                                     <constraint firstAttribute="height" constant="147" id="tV0-uq-1rj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NB0-6q-ADl">
                                 <rect key="frame" x="239" y="214" width="122" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Give me a Tweet! ">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -120,6 +136,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8A-uJ-OFO">
                                 <rect key="frame" x="276" y="323" width="49" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -127,16 +144,23 @@
                                     <action selector="submitTweet:" destination="0Wd-p0-SAs" eventType="touchUpInside" id="Y8L-7S-Lm9"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Auw-Cf-roP">
+                                <rect key="frame" x="290" y="159" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewB-GV-XmI">
                                 <rect key="frame" x="559" y="256" width="21" height="21"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ewB-GV-XmI" firstAttribute="baseline" secondItem="Y8A-uJ-OFO" secondAttribute="firstBaseline" constant="-71" id="14Q-6E-JNi"/>
+                            <constraint firstItem="NB0-6q-ADl" firstAttribute="top" secondItem="Auw-Cf-roP" secondAttribute="bottom" constant="35" id="3P3-Nd-P7t"/>
                             <constraint firstItem="ewB-GV-XmI" firstAttribute="baseline" secondItem="Y8A-uJ-OFO" secondAttribute="baseline" constant="-71" id="4iD-df-FzK"/>
                             <constraint firstItem="ewB-GV-XmI" firstAttribute="trailing" secondItem="1st-BQ-zAt" secondAttribute="trailingMargin" id="BhO-Mj-zsO"/>
                             <constraint firstItem="q09-o7-fnd" firstAttribute="leading" secondItem="1st-BQ-zAt" secondAttribute="leadingMargin" constant="-4" id="HIm-DG-8kr"/>
@@ -144,6 +168,7 @@
                             <constraint firstItem="J2J-cg-L8t" firstAttribute="top" secondItem="QWL-lE-mcs" secondAttribute="bottom" constant="39" id="Sj7-lC-xdb"/>
                             <constraint firstItem="q09-o7-fnd" firstAttribute="centerY" secondItem="1st-BQ-zAt" secondAttribute="centerY" id="WFO-vW-cEB"/>
                             <constraint firstItem="Y8A-uJ-OFO" firstAttribute="top" secondItem="q09-o7-fnd" secondAttribute="bottom" constant="8" symbolic="YES" id="XHF-6L-fdc"/>
+                            <constraint firstItem="Auw-Cf-roP" firstAttribute="centerX" secondItem="NB0-6q-ADl" secondAttribute="centerX" id="bbt-fj-lhA"/>
                             <constraint firstItem="NB0-6q-ADl" firstAttribute="top" secondItem="J2J-cg-L8t" secondAttribute="bottom" constant="8" symbolic="YES" id="eaH-gP-0pB"/>
                             <constraint firstItem="J2J-cg-L8t" firstAttribute="centerX" secondItem="q09-o7-fnd" secondAttribute="centerX" id="ejI-ch-cJa"/>
                             <constraint firstItem="Y8A-uJ-OFO" firstAttribute="centerX" secondItem="NB0-6q-ADl" secondAttribute="centerX" id="m6Y-fL-jaX"/>
@@ -153,6 +178,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="C8Y-E0-vAJ"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Auw-Cf-roP" id="Gh4-Lj-ywH"/>
                         <outlet property="characterCount" destination="ewB-GV-XmI" id="rk5-7p-xP4"/>
                         <outlet property="preExistingTweet" destination="J2J-cg-L8t" id="vA6-Xi-QuW"/>
                         <outlet property="tweetTextField" destination="q09-o7-fnd" id="JVh-51-zgP"/>
@@ -170,6 +196,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="NxH-cC-TXd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
