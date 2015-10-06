@@ -99,24 +99,31 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     // If user hits "Give Me a Tweet!", select a random object from Parse database and show it.
     @IBAction func getAPrexistingTweet(sender: AnyObject) {
         
+        // hide the tweet label to remove old tweet. 
+        self.preExistingTweet.hidden = true
+        
         // start the activity Indicator until the tweet is fetched.
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
         
-        // Stores the number of items int the database. 
+        // Stores the number of items int the database.
         var numberOfObjects: Int32 = 0
         
+        // create a query
         let query = PFQuery(className:"Tweets")
+        
+        // Get the number of entries in the Parse Database
         query.countObjectsInBackgroundWithBlock {
             (count: Int32, error: NSError?) -> Void in
             if error == nil {
                 numberOfObjects = count
+                // Generate a random number between 1 and the number of items
                 var randomNumber = Int(numberOfObjects)
                 randomNumber = random() % randomNumber
-                print(randomNumber)
-
+                
+                //
                 query.skip = randomNumber
-                query.limit = 10
+                query.limit = 1
                 
                 query.getFirstObjectInBackgroundWithBlock {
                     (object: PFObject?, error: NSError?) -> Void in
@@ -129,6 +136,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.hidden = true
                         self.preExistingTweet.text = tweetToEdit
+                        self.preExistingTweet.hidden = false
                         self.preExistingTweetParseID = (object?.objectId)!
                     }
                 }
