@@ -19,7 +19,6 @@
 		1CED8D191BADCD7B00BD3424 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CED8D151BADCD7B00BD3424 /* TwitterCore.framework */; };
 		1CED8D1D1BADD30E00BD3424 /* SignInToMainSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CED8D1C1BADD30E00BD3424 /* SignInToMainSegue.swift */; };
 		1CED8D231BADD76800BD3424 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CED8D221BADD76800BD3424 /* ProfilePageViewController.swift */; };
-		1CED8D251BADDCE000BD3424 /* profile-user-silhouette_318-40557.png.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1CED8D241BADDCE000BD3424 /* profile-user-silhouette_318-40557.png.jpeg */; };
 		1CED8D281BADE50B00BD3424 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CED8D261BADE50B00BD3424 /* Bolts.framework */; };
 		1CED8D291BADE50B00BD3424 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CED8D271BADE50B00BD3424 /* Parse.framework */; };
 		1CED8D2B1BADE54100BD3424 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CED8D2A1BADE54100BD3424 /* AudioToolbox.framework */; };
@@ -62,7 +61,6 @@
 		1CED8D151BADCD7B00BD3424 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		1CED8D1C1BADD30E00BD3424 /* SignInToMainSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInToMainSegue.swift; sourceTree = "<group>"; };
 		1CED8D221BADD76800BD3424 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
-		1CED8D241BADDCE000BD3424 /* profile-user-silhouette_318-40557.png.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile-user-silhouette_318-40557.png.jpeg"; sourceTree = "<group>"; };
 		1CED8D261BADE50B00BD3424 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		1CED8D271BADE50B00BD3424 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		1CED8D2A1BADE54100BD3424 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -156,7 +154,6 @@
 				1CED8D221BADD76800BD3424 /* ProfilePageViewController.swift */,
 				1CED8CF81BADCD2200BD3424 /* Images.xcassets */,
 				1CED8CFA1BADCD2200BD3424 /* LaunchScreen.xib */,
-				1CED8D241BADDCE000BD3424 /* profile-user-silhouette_318-40557.png.jpeg */,
 				1CED8CEF1BADCD2200BD3424 /* Supporting Files */,
 			);
 			path = "Crowd Tweet";
@@ -273,7 +270,6 @@
 			files = (
 				1CED8D181BADCD7B00BD3424 /* TwitterKitResources.bundle in Resources */,
 				1CED8CF71BADCD2200BD3424 /* Main.storyboard in Resources */,
-				1CED8D251BADDCE000BD3424 /* profile-user-silhouette_318-40557.png.jpeg in Resources */,
 				1CED8CFC1BADCD2200BD3424 /* LaunchScreen.xib in Resources */,
 				1CED8CF91BADCD2200BD3424 /* Images.xcassets in Resources */,
 			);

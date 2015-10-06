@@ -42,13 +42,13 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         // If there is text in the preExistingTweet label, we are using a pre-existing tweet we will update the parse database with the appended text.
         if preExistingTweet.text != "" {
             
-            // appends the new text to the pre-existing tweet.
+            // Appends the new text to the pre-existing tweet.
             _ = PFObject(className:"Tweets")
             let query = PFQuery(className:"Tweets")
             let newTweet = self.preExistingTweet.text! + " " + self.tweetTextField.text!
             
             
-            // save this newly updated tweet
+            // Use the ParseID stored to update database.
             query.getObjectInBackgroundWithId(self.preExistingTweetParseID) {
                 (tweetID: PFObject?, error: NSError?) -> Void in
                 if error != nil {
@@ -79,6 +79,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
             tweets.setObject(tweetTextField.text!, forKey: "tweet")
             tweets.setValue(Twitter.sharedInstance().session()?.userName, forKey: "handle")
             
+            // Create a new data entry
             tweets.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                 if (success) {
                     // The object has been saved.
@@ -90,6 +91,8 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
             usingUnfinishedTweet = true
 
         }
+        
+        // Clear the text fields. 
         self.preExistingTweet.text = ""
         self.tweetTextField.text = ""
         characterCount.text = "40"
@@ -121,10 +124,11 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
                 var randomNumber = Int(numberOfObjects)
                 randomNumber = random() % randomNumber
                 
-                //
+                // Get the data entry that correlates to the random number by skipping that many entries.
                 query.skip = randomNumber
                 query.limit = 1
                 
+                // Get data entry
                 query.getFirstObjectInBackgroundWithBlock {
                     (object: PFObject?, error: NSError?) -> Void in
                     if error != nil || object == nil {
@@ -133,10 +137,13 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
                         // The find succeeded.
                         print("Successfully retrieved the object.")
                         let tweetToEdit = object?.objectForKey("tweet") as! String
+                        // Stop the activity tracker.
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.hidden = true
+                        // Show the fetched tweet.
                         self.preExistingTweet.text = tweetToEdit
                         self.preExistingTweet.hidden = false
+                        // Store the ParseID of fetched tweet.
                         self.preExistingTweetParseID = (object?.objectId)!
                     }
                 }
