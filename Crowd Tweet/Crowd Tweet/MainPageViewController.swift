@@ -6,6 +6,11 @@
 //  Copyright (c) 2015 Prakhar Garg. All rights reserved.
 //
 
+
+// Main ViewController of the app. Allows the user to choose between contributing to an already existing Tweet or starting a new tweet.
+// The user is given 40 characters to type. 
+// The view controller consists of a label to display pre-existing tweets, a field to type in text, a label with the character count, and a submit button.
+
 import UIKit
 import TwitterKit
 import Parse
@@ -16,34 +21,40 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     // Label that contains an already started Tweet
     @IBOutlet var preExistingTweet: UILabel!
     
+    // The indicator is by default hidden until the user asks for a pre-existing tweet. The indicator will show that a tweet is being fetched.
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    // TextField to enter in part of a Tweet
+    
+    // TextField to enter in 40 characters.
     @IBOutlet var tweetTextField: UITextField!
     
+    // Label that shows the remaining characters that the user has.
     @IBOutlet var characterCount: UILabel!
+    
+    // ID that correlates to the tweet being used in the Parse Database.
     var preExistingTweetParseID: String = ""
     
+    // Boolean by default set to false. Flags if the user is using someone else's tweet.
     var usingUnfinishedTweet = false
     
+    // Main function of the app that is called when the submit button is pressed.
     @IBAction func submitTweet(sender: AnyObject) {
         
-        // If contributing to someone else's tweet
+        // If there is text in the preExistingTweet label, we are using a pre-existing tweet we will update the parse database with the appended text.
         if preExistingTweet.text != "" {
-            // stores it in Parse database
+            
+            // appends the new text to the pre-existing tweet.
             _ = PFObject(className:"Tweets")
-            
-            // Store tweet and Twitter handle
-            
             let query = PFQuery(className:"Tweets")
             let newTweet = self.preExistingTweet.text! + " " + self.tweetTextField.text!
-
+            
+            
+            // save this newly updated tweet
             query.getObjectInBackgroundWithId(self.preExistingTweetParseID) {
                 (tweetID: PFObject?, error: NSError?) -> Void in
                 if error != nil {
                     print(error)
                 }
                 else if let tweetID = tweetID {
-
                     tweetID["tweet"] = newTweet
                     tweetID.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                         if (success) {
@@ -88,9 +99,11 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     // If user hits "Give Me a Tweet!", select a random object from Parse database and show it.
     @IBAction func getAPrexistingTweet(sender: AnyObject) {
         
+        // start the activity Indicator until the tweet is fetched.
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
         
+        // Stores the number of items int the database. 
         var numberOfObjects: Int32 = 0
         
         let query = PFQuery(className:"Tweets")
@@ -123,6 +136,8 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    // When the app starts up, the activity indicator is hidden.
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.hidden = true
@@ -134,11 +149,13 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+    // delegate method
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
+    // Displays how many characters are left for the user to use.
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         let newLength = (textField.text!.utf16).count + (string.utf16).count - range.length
         if(newLength <= 40){
@@ -147,14 +164,6 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         }else{
             return false
         }
-    }    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }
