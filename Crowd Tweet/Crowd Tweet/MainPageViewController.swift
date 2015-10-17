@@ -36,6 +36,9 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     // Boolean by default set to false. Flags if the user is using someone else's tweet.
     var usingUnfinishedTweet = false
     
+    // String that contains all of the handles associated with the tweet if the user wants to continue a Tweet. 
+    var preExistingTweetHandles = String()
+    
     // Main function of the app that is called when the submit button is pressed.
     @IBAction func submitTweet(sender: AnyObject) {
         
@@ -46,7 +49,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
             _ = PFObject(className:"Tweets")
             let query = PFQuery(className:"Tweets")
             let newTweet = self.preExistingTweet.text! + " " + self.tweetTextField.text!
-            
+            preExistingTweetHandles = preExistingTweetHandles + " " + (Twitter.sharedInstance().session()?.userName)!
             
             // Use the ParseID stored to update database.
             query.getObjectInBackgroundWithId(self.preExistingTweetParseID) {
@@ -56,6 +59,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
                 }
                 else if let tweetID = tweetID {
                     tweetID["tweet"] = newTweet
+                    tweetID["handle"] = self.preExistingTweetHandles
                     tweetID.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                         if (success) {
                             // The object has been saved.
@@ -137,6 +141,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
                         // The find succeeded.
                         print("Successfully retrieved the object.")
                         let tweetToEdit = object?.objectForKey("tweet") as! String
+                        self.preExistingTweetHandles = object?.objectForKey("handle") as! String
                         // Stop the activity tracker.
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.hidden = true

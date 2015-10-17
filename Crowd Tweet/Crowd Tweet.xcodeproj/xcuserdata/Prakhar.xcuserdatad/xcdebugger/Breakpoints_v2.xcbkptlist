@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Crowd Tweet/MainPageViewController.swift"
-            timestampString = "465854238.982844"
+            timestampString = "466817689.712149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "getAPrexistingTweet(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Crowd Tweet/MainPageViewController.swift"
-            timestampString = "465854238.982844"
+            timestampString = "466817689.712149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "getAPrexistingTweet(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Crowd Tweet/MainPageViewController.swift"
-            timestampString = "465854238.982844"
+            timestampString = "466817689.712149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "getAPrexistingTweet(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -97,6 +97,54 @@
             endingLineNumber = "55"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crowd Tweet/MainPageViewController.swift"
+            timestampString = "466817581.139888"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "submitTweet(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Crowd_Tweet.MainPageViewController.submitTweet (Crowd_Tweet.MainPageViewController)(Swift.AnyObject) -&gt; ()"
+                  moduleName = "Crowd Tweet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Prakhar/Documents/iPhone%20Projects/CrowdTweet/Crowd%20Tweet/Crowd%20Tweet/MainPageViewController.swift"
+                  timestampString = "466817581.148219"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1819">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Crowd_Tweet.MainPageViewController.(submitTweet (Crowd_Tweet.MainPageViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "Crowd Tweet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Prakhar/Documents/iPhone%20Projects/CrowdTweet/Crowd%20Tweet/Crowd%20Tweet/MainPageViewController.swift"
+                  timestampString = "466817581.148481"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
