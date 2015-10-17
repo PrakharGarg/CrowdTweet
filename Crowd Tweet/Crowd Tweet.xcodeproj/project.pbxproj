@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C41612D1BD2936700027A25 /* ProfilePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C41612C1BD2936700027A25 /* ProfilePageTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		1CED8CF21BADCD2200BD3424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CED8CF11BADCD2200BD3424 /* AppDelegate.swift */; };
 		1CED8CF41BADCD2200BD3424 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CED8CF31BADCD2200BD3424 /* ViewController.swift */; };
 		1CED8CF71BADCD2200BD3424 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CED8CF51BADCD2200BD3424 /* Main.storyboard */; };
@@ -18,7 +19,6 @@
 		1CED8D181BADCD7B00BD3424 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1CED8D141BADCD7B00BD3424 /* TwitterKitResources.bundle */; };
 		1CED8D191BADCD7B00BD3424 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CED8D151BADCD7B00BD3424 /* TwitterCore.framework */; };
 		1CED8D1D1BADD30E00BD3424 /* SignInToMainSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CED8D1C1BADD30E00BD3424 /* SignInToMainSegue.swift */; };
-		1CED8D231BADD76800BD3424 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CED8D221BADD76800BD3424 /* ProfilePageViewController.swift */; };
 		1CED8D281BADE50B00BD3424 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CED8D261BADE50B00BD3424 /* Bolts.framework */; };
 		1CED8D291BADE50B00BD3424 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CED8D271BADE50B00BD3424 /* Parse.framework */; };
 		1CED8D2B1BADE54100BD3424 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CED8D2A1BADE54100BD3424 /* AudioToolbox.framework */; };
@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C41612C1BD2936700027A25 /* ProfilePageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewController.swift; sourceTree = "<group>"; };
 		1CED8CEC1BADCD2200BD3424 /* Crowd Tweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crowd Tweet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CED8CF01BADCD2200BD3424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CED8CF11BADCD2200BD3424 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		1CED8D141BADCD7B00BD3424 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		1CED8D151BADCD7B00BD3424 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		1CED8D1C1BADD30E00BD3424 /* SignInToMainSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInToMainSegue.swift; sourceTree = "<group>"; };
-		1CED8D221BADD76800BD3424 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		1CED8D261BADE50B00BD3424 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		1CED8D271BADE50B00BD3424 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		1CED8D2A1BADE54100BD3424 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -150,8 +150,8 @@
 				1CED8CF31BADCD2200BD3424 /* ViewController.swift */,
 				1CED8D1C1BADD30E00BD3424 /* SignInToMainSegue.swift */,
 				1CED8CF51BADCD2200BD3424 /* Main.storyboard */,
+				1C41612C1BD2936700027A25 /* ProfilePageTableViewController.swift */,
 				1CED8D3E1BADE9CA00BD3424 /* MainPageViewController.swift */,
-				1CED8D221BADD76800BD3424 /* ProfilePageViewController.swift */,
 				1CED8CF81BADCD2200BD3424 /* Images.xcassets */,
 				1CED8CFA1BADCD2200BD3424 /* LaunchScreen.xib */,
 				1CED8CEF1BADCD2200BD3424 /* Supporting Files */,
@@ -309,7 +309,7 @@
 				1CED8CF41BADCD2200BD3424 /* ViewController.swift in Sources */,
 				1CED8D1D1BADD30E00BD3424 /* SignInToMainSegue.swift in Sources */,
 				1CED8CF21BADCD2200BD3424 /* AppDelegate.swift in Sources */,
-				1CED8D231BADD76800BD3424 /* ProfilePageViewController.swift in Sources */,
+				1C41612D1BD2936700027A25 /* ProfilePageTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
