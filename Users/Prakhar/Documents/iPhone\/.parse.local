@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Crowd Tweet": {
+      "applicationId": "rToAjUee9ogT3rlPAOj3eQ1PlyLYRnINWNXkoCue"
+    },
+    "_default": {
+      "link": "Crowd Tweet"
+    }
+  }
+}

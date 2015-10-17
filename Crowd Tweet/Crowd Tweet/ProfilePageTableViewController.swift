@@ -15,6 +15,7 @@ class ProfilePageTableViewController: UITableViewController {
 
     @IBAction func refreshPage(sender: AnyObject) {
         
+        tweetArray.removeAll()
         // Get a new query and update the tweet array.
         updateList({
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
