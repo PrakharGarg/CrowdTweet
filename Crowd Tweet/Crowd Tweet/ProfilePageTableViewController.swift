@@ -15,12 +15,20 @@ class ProfilePageTableViewController: UITableViewController {
 
     @IBAction func refreshPage(sender: AnyObject) {
         
-        // Get a new query and update the tweet array
-        updateList()
+        // Get a new query and update the tweet array.
+        updateList({
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
+            })
+        })
+        
+        
+        // Print all of the user's tweets in cells in the table.
         
     }
     
-    var tweetArray = [NSString]()
+    var tweetArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,26 +47,25 @@ class ProfilePageTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+    
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tweetArray.count
     }
-
+    
+    var i = 0
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetsInProgress", forIndexPath: indexPath)
-
-        // Configure the cell...
+        
+        cell.textLabel?.text = tweetArray[indexPath.row]
+        
 
         return cell
     }
     
-    func updateList()-> Void {
+    func updateList(completion: ()->() ) {
         
         // Create a new Parse query to find all the tweets with the handle of the user
         
@@ -73,11 +80,12 @@ class ProfilePageTableViewController: UITableViewController {
                 // The find succeeded.
                 print("Successfully retrieved \(TweetID!.count) scores.")
                 // Do something with the found objects
-                if let TweetID = TweetID! as? [PFObject] {
-                    for object in TweetID {
-                        self.tweetArray.append(object.objectForKey("tweet") as! NSString)
+                if let myTweetID = TweetID {
+                    for object in myTweetID {
+                        self.tweetArray.append(object.objectForKey("tweet") as! String)
                     }
                 }
+                completion()
                 print(self.tweetArray)
             } else {
                 // Log details of the failure
