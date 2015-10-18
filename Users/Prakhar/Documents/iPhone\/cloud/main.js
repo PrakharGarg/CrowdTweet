@@ -5,17 +5,25 @@ Parse.Cloud.afterSave ("Tweets", function(request, response) {
   var handleArray = String((request.object.get("handle")));
   var tweetLength = 1 + String((request.object.get("tweet"))).length;
   var handleLength = 1 + handleArray.length;
-  var numberOfHandles = request.object.get("handle").split(" ").length - 1;
+  var handles = request.object.get("handle").split(" ");
+  var numberOfHandles = handles.length - 1;
   var totalLength = tweetLength + handleLength + numberOfHandles;
 
+  console.log(handles);
   console.log("The total length is " + totalLength);
 
-});
+  var tweet = String((request.object.get("tweet")));
 
-Parse.Cloud.define("Twitter", function(request, response) {
+  for ( var i = 0; i <= numberOfHandles; i++ ){
+    tweet = tweet +  " @" + handles[i];
+  }
+
+  console.log(tweet);
+
+
   var urlLink = 'https://api.twitter.com/1.1/statuses/update.json';
 
-  var postSummary = request.params.status;
+  var postSummary = tweet;
   var status = oauth.percentEncode(postSummary);
   var consumerSecret = "RPIdmNtmya0cUvqD2HbWlIumXpKSow2aeXd8gCFfhikC552k7T";
   var tokenSecret = "RDhPCdppdia6EIZLA4iVITl7a9rLqRxL3TePpQvGOsPo4";
@@ -73,4 +81,7 @@ Parse.Cloud.define("Twitter", function(request, response) {
       response.error('Request failed with response ' + httpResponse.status + ' , ' + httpResponse);
     }
   });
+
+
+
 });
