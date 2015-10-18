@@ -99,7 +99,7 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
         // Clear the text fields. 
         self.preExistingTweet.text = ""
         self.tweetTextField.text = ""
-        characterCount.text = "40"
+        characterCount.text = "30"
         
     }
     
@@ -178,8 +178,8 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     // Displays how many characters are left for the user to use.
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         let newLength = (textField.text!.utf16).count + (string.utf16).count - range.length
-        if(newLength <= 40){
-            self.characterCount.text = "\(40 - newLength)"
+        if(newLength <= 30){
+            self.characterCount.text = "\(30 - newLength)"
             return true
         }else{
             return false
