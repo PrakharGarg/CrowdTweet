@@ -12,7 +12,7 @@ Parse.Cloud.afterSave ("Tweets", function(request, response) {
   console.log(handles);
   console.log("The total length is " + totalLength);
 
-  if (140 - totalLength < 58){
+  if (140 - totalLength < 48){
     var tweet = String((request.object.get("tweet")));
 
     for ( var i = 0; i <= numberOfHandles; i++ ){
