@@ -57,7 +57,6 @@ class ProfilePageTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetsInProgress", forIndexPath: indexPath)
         
         cell.textLabel?.text = tweetArray[indexPath.row]
-        
 
         return cell
     }
@@ -91,17 +90,14 @@ class ProfilePageTableViewController: UITableViewController {
         }
     }
     
-    
-    
-    
-    
     var thereIsCellTapped = false
     var selectedRowIndex = -1
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if indexPath.row == selectedRowIndex && thereIsCellTapped {
-            return 100
+            
+            return 60
         }
         
         return 44
@@ -110,20 +106,25 @@ class ProfilePageTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         self.tableView.cellForRowAtIndexPath(indexPath)?.backgroundColor = UIColor.grayColor()
-        
+        self.tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.numberOfLines = 2;
         // avoid paint the cell is the index is outside the bounds
         if self.selectedRowIndex != -1 {
+            self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: self.selectedRowIndex, inSection: 0))?.textLabel?.numberOfLines = 1
             self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: self.selectedRowIndex, inSection: 0))?.backgroundColor = UIColor.whiteColor()
+            
         }
         
         if selectedRowIndex != indexPath.row {
             self.thereIsCellTapped = true
+            
             self.selectedRowIndex = indexPath.row
+            self.tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.numberOfLines = 2
         }
         else {
             // there is no cell selected anymore
             self.thereIsCellTapped = false
             self.selectedRowIndex = -1
+            self.tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.numberOfLines = 1;
         }
         
         self.tableView.beginUpdates()
