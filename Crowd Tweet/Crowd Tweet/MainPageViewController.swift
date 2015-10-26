@@ -42,6 +42,16 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     // Main function of the app that is called when the submit button is pressed.
     @IBAction func submitTweet(sender: AnyObject) {
         
+        if self.tweetTextField.text == "" {
+            let alertController = UIAlertController(title: "Empty Tweet Field", message:
+                "Please enter text before submitting", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
         // If there is text in the preExistingTweet label, we are using a pre-existing tweet we will update the parse database with the appended text.
         if preExistingTweet.text != "" {
             
