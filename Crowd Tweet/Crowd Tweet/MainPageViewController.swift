@@ -42,10 +42,12 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
     // Main function of the app that is called when the submit button is pressed.
     @IBAction func submitTweet(sender: AnyObject) {
         
+        // The user must enter some input before submitting. Create an alert if its empty.
         if self.tweetTextField.text == "" {
+            
             let alertController = UIAlertController(title: "Empty Tweet Field", message:
                 "Please enter text before submitting", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
             
@@ -134,6 +136,21 @@ class MainPageViewController: UIViewController, UITextFieldDelegate {
             (count: Int32, error: NSError?) -> Void in
             if error == nil {
                 numberOfObjects = count
+                
+                // If there are no pre-existing tweet, display an alert and stop the queue.
+                if(count == 0){
+                    let alertController = UIAlertController(title: "No Tweet Found", message:
+                        "There seems to be no pre-existing tweet. Why not start your own!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    // Stop the activity tracker
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.hidden = true
+                    
+                    return
+
+                }
                 // Generate a random number between 1 and the number of items
                 var randomNumber = Int(numberOfObjects)
                 randomNumber = random() % randomNumber
